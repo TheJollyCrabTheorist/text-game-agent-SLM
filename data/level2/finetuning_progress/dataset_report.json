@@ -1,0 +1,22 @@
+{
+  "experiment": "level2_progress_aware_finetuning",
+  "prompt_version": "progress",
+  "training": {
+    "level1_replay_examples": 347,
+    "level2_aligned_examples": 105,
+    "level2_corrections": 3,
+    "total_examples": 452
+  },
+  "validation": {
+    "expected_games": 4,
+    "games_used": 4,
+    "num_examples": 20,
+    "missing_games": [],
+    "unsuccessful_games": [],
+    "invalid_actions": []
+  },
+  "files": {
+    "train": "data/level2/finetuning_progress/train.jsonl",
+    "validation": "data/level2/finetuning_progress/validation.jsonl"
+  }
+}

@@ -1,0 +1,662 @@
+{
+  "created_at": "2026-11-04T16:45:46.342417+00:00",
+  "level": 2,
+  "generator": "TextWorld tw-make custom",
+  "num_games": 30,
+  "base_seed": 10000,
+  "split_seed": 42,
+  "generation_parameters": {
+    "world_size": 8,
+    "nb_objects": 15,
+    "quest_min_length": 5,
+    "quest_max_length": 8,
+    "quest_min_breadth": 2,
+    "quest_max_breadth": 3,
+    "quest_min_depth": 2,
+    "quest_max_depth": 4,
+    "nb_parallel_quests": 1,
+    "theme": "house",
+    "ambiguous_instructions": false,
+    "blend_descriptions": false
+  },
+  "splits": {
+    "train": [
+      "advanced_game_0019",
+      "advanced_game_0014",
+      "advanced_game_0010",
+      "advanced_game_0026",
+      "advanced_game_0022",
+      "advanced_game_0006",
+      "advanced_game_0005",
+      "advanced_game_0012",
+      "advanced_game_0011",
+      "advanced_game_0015",
+      "advanced_game_0009",
+      "advanced_game_0025",
+      "advanced_game_0029",
+      "advanced_game_0021",
+      "advanced_game_0016",
+      "advanced_game_0027",
+      "advanced_game_0001",
+      "advanced_game_0013",
+      "advanced_game_0018",
+      "advanced_game_0002",
+      "advanced_game_0017"
+    ],
+    "validation": [
+      "advanced_game_0028",
+      "advanced_game_0004",
+      "advanced_game_0024",
+      "advanced_game_0007"
+    ],
+    "test": [
+      "advanced_game_0008",
+      "advanced_game_0023",
+      "advanced_game_0000",
+      "advanced_game_0003",
+      "advanced_game_0020"
+    ]
+  },
+  "games": [
+    {
+      "game_id": "advanced_game_0000",
+      "seed": 10000,
+      "game_path": "data/level2/games/advanced_game_0000.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "test"
+    },
+    {
+      "game_id": "advanced_game_0001",
+      "seed": 10001,
+      "game_path": "data/level2/games/advanced_game_0001.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0002",
+      "seed": 10002,
+      "game_path": "data/level2/games/advanced_game_0002.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0003",
+      "seed": 10003,
+      "game_path": "data/level2/games/advanced_game_0003.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "test"
+    },
+    {
+      "game_id": "advanced_game_0004",
+      "seed": 10004,
+      "game_path": "data/level2/games/advanced_game_0004.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "validation"
+    },
+    {
+      "game_id": "advanced_game_0005",
+      "seed": 10005,
+      "game_path": "data/level2/games/advanced_game_0005.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0006",
+      "seed": 10006,
+      "game_path": "data/level2/games/advanced_game_0006.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0007",
+      "seed": 10007,
+      "game_path": "data/level2/games/advanced_game_0007.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "validation"
+    },
+    {
+      "game_id": "advanced_game_0008",
+      "seed": 10008,
+      "game_path": "data/level2/games/advanced_game_0008.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "test"
+    },
+    {
+      "game_id": "advanced_game_0009",
+      "seed": 10009,
+      "game_path": "data/level2/games/advanced_game_0009.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0010",
+      "seed": 10010,
+      "game_path": "data/level2/games/advanced_game_0010.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0011",
+      "seed": 10011,
+      "game_path": "data/level2/games/advanced_game_0011.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0012",
+      "seed": 10012,
+      "game_path": "data/level2/games/advanced_game_0012.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0013",
+      "seed": 10013,
+      "game_path": "data/level2/games/advanced_game_0013.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0014",
+      "seed": 10014,
+      "game_path": "data/level2/games/advanced_game_0014.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0015",
+      "seed": 10015,
+      "game_path": "data/level2/games/advanced_game_0015.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0016",
+      "seed": 10016,
+      "game_path": "data/level2/games/advanced_game_0016.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0017",
+      "seed": 10017,
+      "game_path": "data/level2/games/advanced_game_0017.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0018",
+      "seed": 10018,
+      "game_path": "data/level2/games/advanced_game_0018.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0019",
+      "seed": 10019,
+      "game_path": "data/level2/games/advanced_game_0019.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0020",
+      "seed": 10020,
+      "game_path": "data/level2/games/advanced_game_0020.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "test"
+    },
+    {
+      "game_id": "advanced_game_0021",
+      "seed": 10021,
+      "game_path": "data/level2/games/advanced_game_0021.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0022",
+      "seed": 10022,
+      "game_path": "data/level2/games/advanced_game_0022.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0023",
+      "seed": 10023,
+      "game_path": "data/level2/games/advanced_game_0023.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "test"
+    },
+    {
+      "game_id": "advanced_game_0024",
+      "seed": 10024,
+      "game_path": "data/level2/games/advanced_game_0024.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "validation"
+    },
+    {
+      "game_id": "advanced_game_0025",
+      "seed": 10025,
+      "game_path": "data/level2/games/advanced_game_0025.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0026",
+      "seed": 10026,
+      "game_path": "data/level2/games/advanced_game_0026.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0027",
+      "seed": 10027,
+      "game_path": "data/level2/games/advanced_game_0027.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    },
+    {
+      "game_id": "advanced_game_0028",
+      "seed": 10028,
+      "game_path": "data/level2/games/advanced_game_0028.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "validation"
+    },
+    {
+      "game_id": "advanced_game_0029",
+      "seed": 10029,
+      "game_path": "data/level2/games/advanced_game_0029.z8",
+      "generation_parameters": {
+        "world_size": 8,
+        "nb_objects": 15,
+        "quest_min_length": 5,
+        "quest_max_length": 8,
+        "quest_min_breadth": 2,
+        "quest_max_breadth": 3,
+        "quest_min_depth": 2,
+        "quest_max_depth": 4,
+        "nb_parallel_quests": 1,
+        "theme": "house",
+        "ambiguous_instructions": false,
+        "blend_descriptions": false
+      },
+      "split": "train"
+    }
+  ]
+}
