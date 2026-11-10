@@ -1,0 +1,226 @@
+{
+  "experiment": "level2_trajectory_aligned_corrections",
+  "prompt_version": "legacy",
+  "source_split": "train",
+  "num_model_games": 21,
+  "num_expert_games": 21,
+  "num_examples": 97,
+  "aligned_states": 97,
+  "already_correct": 92,
+  "corrections": 5,
+  "unmatched_states": 85,
+  "ambiguous_states": 0,
+  "missing_expert_games": 0,
+  "games": [
+    {
+      "game_id": "advanced_game_0019",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0014",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0010",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0026",
+      "model_success": true,
+      "model_steps": 6,
+      "aligned": 4,
+      "already_correct": 3,
+      "corrections": 1,
+      "unmatched": 2,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0022",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0006",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 4,
+      "already_correct": 3,
+      "corrections": 1,
+      "unmatched": 1,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0005",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0012",
+      "model_success": false,
+      "model_steps": 50,
+      "aligned": 5,
+      "already_correct": 4,
+      "corrections": 1,
+      "unmatched": 45,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0011",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0015",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0009",
+      "model_success": true,
+      "model_steps": 4,
+      "aligned": 4,
+      "already_correct": 4,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0025",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0029",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0021",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0016",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0027",
+      "model_success": true,
+      "model_steps": 6,
+      "aligned": 5,
+      "already_correct": 4,
+      "corrections": 1,
+      "unmatched": 1,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0001",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0013",
+      "model_success": true,
+      "model_steps": 37,
+      "aligned": 1,
+      "already_correct": 0,
+      "corrections": 1,
+      "unmatched": 36,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0018",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0002",
+      "model_success": true,
+      "model_steps": 5,
+      "aligned": 5,
+      "already_correct": 5,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    {
+      "game_id": "advanced_game_0017",
+      "model_success": true,
+      "model_steps": 4,
+      "aligned": 4,
+      "already_correct": 4,
+      "corrections": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    }
+  ]
+}
