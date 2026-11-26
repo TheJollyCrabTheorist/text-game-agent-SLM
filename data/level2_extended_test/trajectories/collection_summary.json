@@ -1,0 +1,217 @@
+{
+  "num_games": 30,
+  "successful_games": 30,
+  "failed_games": 0,
+  "results": [
+    {
+      "game_id": "advanced_game_0000",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0001",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0002",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0003",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0004",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0005",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0006",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0007",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0008",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0009",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0010",
+      "split": "test",
+      "success": true,
+      "num_steps": 7,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0011",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0012",
+      "split": "test",
+      "success": true,
+      "num_steps": 4,
+      "total_reward": 5.0
+    },
+    {
+      "game_id": "advanced_game_0013",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0014",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0015",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0016",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0017",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0018",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0019",
+      "split": "test",
+      "success": true,
+      "num_steps": 6,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0020",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0021",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 5.0
+    },
+    {
+      "game_id": "advanced_game_0022",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0023",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0024",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0025",
+      "split": "test",
+      "success": true,
+      "num_steps": 7,
+      "total_reward": 8.0
+    },
+    {
+      "game_id": "advanced_game_0026",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0027",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0028",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    },
+    {
+      "game_id": "advanced_game_0029",
+      "split": "test",
+      "success": true,
+      "num_steps": 5,
+      "total_reward": 6.0
+    }
+  ]
+}

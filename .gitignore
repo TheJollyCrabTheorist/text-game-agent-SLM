@@ -1,0 +1,135 @@
+# ============================================================
+# Python
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+
+# ============================================================
+# Virtual environments
+# ============================================================
+
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+
+# ============================================================
+# IDEs and editors
+# ============================================================
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+
+# ============================================================
+# Jupyter
+# ============================================================
+
+.ipynb_checkpoints/
+
+
+# ============================================================
+# Model checkpoints and weights
+# ============================================================
+
+# Large model weights
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Hugging Face caches
+.cache/
+.cache/huggingface/
+huggingface_cache/
+
+# Training checkpoints
+checkpoint-*/
+models/**/checkpoint-*/
+
+# Keep model configurations and training metadata
+!models/**/
+!models/**/adapter_config.json
+!models/**/tokenizer_config.json
+!models/**/tokenizer.json
+!models/**/chat_template.jinja
+!models/**/README.md
+!models/**/training_history.json
+
+
+# ============================================================
+# TextWorld generated games
+# ============================================================
+
+# Compiled game binaries
+*.z8
+*.ulx
+
+# Keep source game descriptions and metadata
+# (.ni and .json files are intentionally tracked)
+
+
+# ============================================================
+# Temporary and cache files
+# ============================================================
+
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+
+tmp/
+temp/
+cache/
+
+
+# ============================================================
+# Experiment outputs
+# ============================================================
+
+# Keep evaluation JSON files and documented results.
+# Ignore only temporary experiment artifacts.
+
+*.tensorboard
+runs/
+wandb/
+lightning_logs/
+
+
+# ============================================================
+# OS
+# ============================================================
+
+.Trash-*
+Thumbs.db
+.DS_Store
+
+# Hugging Face safetensors adapter weights (keep local only)
+*.safetensors
