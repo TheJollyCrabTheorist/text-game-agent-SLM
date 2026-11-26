@@ -1,4 +1,5 @@
 import argparse
+from data_integrity import score_delta
 import json
 import re
 from pathlib import Path
@@ -85,6 +86,7 @@ def collect_walkthrough(game_path, output_path, max_steps=100):
         }
 
         reward = 0.0
+        env_score = float(state.score)
         total_reward = 0.0
         done = False
 
@@ -99,7 +101,7 @@ def collect_walkthrough(game_path, output_path, max_steps=100):
 
             # Ask the oracle for the next action.
             try:
-                action = agent.act(state, reward, done)
+                action = agent.act(state, env_score, done)
             except WalkthroughDone:
                 trajectory["walkthrough_exhausted"] = True
                 print("Walkthrough exhausted: no more oracle actions.")
@@ -122,9 +124,11 @@ def collect_walkthrough(game_path, output_path, max_steps=100):
                 break
 
             # Execute the action.
-            next_state, reward, done = env.step(action)
+            current_score = float(state.score)
+            next_state, env_score, done = env.step(action)
+            reward = score_delta(current_score, next_state.score)
 
-            total_reward += float(reward)
+            total_reward += reward
 
             transition = {
                 "step": step,
@@ -139,7 +143,7 @@ def collect_walkthrough(game_path, output_path, max_steps=100):
                 "done": bool(done),
                 "won": bool(next_state.won),
                 "lost": bool(next_state.lost),
-                "score": float(state.score),
+                "score": current_score,
                 "max_score": float(state.max_score),
                 "next_score": float(next_state.score),
                 "next_max_score": float(next_state.max_score),
@@ -159,6 +163,8 @@ def collect_walkthrough(game_path, output_path, max_steps=100):
         trajectory["environment_done"] = bool(done)
         trajectory["won"] = bool(state.won)
         trajectory["total_reward"] = total_reward
+        trajectory["reward_semantics"] = "score_delta"
+        trajectory["final_score"] = float(state.score)
         trajectory["num_steps"] = len(trajectory["steps"])
         trajectory["max_score"] = float(state.max_score)
 

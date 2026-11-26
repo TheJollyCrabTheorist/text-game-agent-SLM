@@ -1,4 +1,5 @@
 import json
+import argparse
 from pathlib import Path
 from collections import Counter
 
@@ -104,11 +105,20 @@ Choose the next action."""
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--prompt-version", choices=["legacy", "ordered"], default="ordered")
+    parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
+    args = parser.parse_args()
+    output_dir = args.output_dir
+    if args.prompt_version == "legacy":
+        from evaluate_games import LEGACY_SYSTEM_PROMPT as system_prompt, build_legacy_user_prompt as builder
+    else:
+        system_prompt, builder = SYSTEM_PROMPT, build_user_prompt
     manifest = json.loads(
         MANIFEST_PATH.read_text(encoding="utf-8")
     )
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     split_examples = {
         "train": [],
@@ -195,7 +205,7 @@ def main():
                     f"oracle action is not admissible: {action}"
                 )
 
-            user_prompt = build_user_prompt(
+            user_prompt = builder(
                 prompt_step,
                 steps[:index],
             )
@@ -204,7 +214,7 @@ def main():
                 "messages": [
                     {
                         "role": "system",
-                        "content": SYSTEM_PROMPT,
+                        "content": system_prompt,
                     },
                     {
                         "role": "user",
@@ -228,7 +238,7 @@ def main():
 
     # Save one JSONL file per split.
     for split, examples in split_examples.items():
-        output_path = OUTPUT_DIR / f"{split}.jsonl"
+        output_path = output_dir / f"{split}.jsonl"
 
         with output_path.open("w", encoding="utf-8") as file:
             for example in examples:
@@ -250,7 +260,7 @@ def main():
         print("Examples:", len(examples))
         print(
             "Output:",
-            OUTPUT_DIR / f"{split}.jsonl"
+            output_dir / f"{split}.jsonl"
         )
 
     print("\nSkipped unsuccessful games:", skipped_games)

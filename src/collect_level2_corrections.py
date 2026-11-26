@@ -1,4 +1,6 @@
 import argparse
+from copy import deepcopy
+from data_integrity import validate_history
 import json
 import re
 from collections import Counter, defaultdict
@@ -95,6 +97,7 @@ def index_expert_steps(trajectory):
 def build_example(game_id, model_step, expert_step, previous_steps):
     """Build one supervised example using the exact legacy prompt."""
     
+    validate_history(previous_steps, model_step["step"])
     required_score_fields = ("score", "max_score")
 
     for field in required_score_fields:
@@ -136,7 +139,7 @@ def build_example(game_id, model_step, expert_step, previous_steps):
             },
         ],
         "prompt_step": prompt_step,
-        "previous_steps": previous_steps,
+        "previous_steps": deepcopy(previous_steps),
         "game_id": game_id,
         "step": model_step["step"],
         "split": "train",

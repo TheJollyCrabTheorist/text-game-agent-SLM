@@ -1,4 +1,6 @@
 import argparse
+from data_integrity import validate_history, validate_adapter_base
+from evaluate_games import PROMPT_CONFIGS
 import json
 import math
 import random
@@ -21,7 +23,7 @@ MODEL_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
 
 INITIAL_ADAPTER = (
     PROJECT_ROOT
-    / "models/level2/qlora-corrective-3epochs/best_adapter"
+    / "models/qwen25-05b-textworld-qlora-objective/best_adapter"
 )
 
 TRAIN_PATH = PROJECT_ROOT / "data/level2/finetuning/train.jsonl"
@@ -81,30 +83,33 @@ class TextWorldDataset(Dataset):
                     f"Example {index}: unexpected message roles."
                 )
 
-            prompt_ids = tokenizer.apply_chat_template(
-                messages[:-1],
-                tokenize=True,
-                add_generation_prompt=True,
-                return_dict=False,
-            )
-
-            full_ids = tokenizer.apply_chat_template(
-                messages,
-                tokenize=True,
-                add_generation_prompt=False,
-                return_dict=False,
-            )
-
-            if full_ids[:len(prompt_ids)] != prompt_ids:
-                raise ValueError(
-                    f"Example {index}: prompt/full token alignment failed."
-                )
-
-            input_ids = full_ids[-MAX_LENGTH:]
-            labels = (
-                [-100] * len(prompt_ids)
-                + full_ids[len(prompt_ids):]
-            )[-MAX_LENGTH:]
+            history = list(row["previous_steps"])
+            validate_history(history, row["step"])
+            builders = [c["user_prompt_builder"] for c in PROMPT_CONFIGS.values()
+                        if c["system_prompt"] == messages[0]["content"]]
+            if len(builders) != 1:
+                raise ValueError(f"Example {index}: unrecognized system prompt")
+            builder = builders[0]
+            if builder(row["prompt_step"], history) != messages[1]["content"]:
+                raise ValueError(f"Example {index}: stored prompt differs from structured data")
+            while True:
+                bounded_messages = [messages[0], {"role": "user", "content":
+                    builder(row["prompt_step"], history)}, messages[2]]
+                prompt_ids = tokenizer.apply_chat_template(
+                    bounded_messages[:-1], tokenize=True,
+                    add_generation_prompt=True, return_dict=False)
+                full_ids = tokenizer.apply_chat_template(
+                    bounded_messages, tokenize=True,
+                    add_generation_prompt=False, return_dict=False)
+                if full_ids[:len(prompt_ids)] != prompt_ids:
+                    raise ValueError(f"Example {index}: prompt/full token alignment failed")
+                if len(full_ids) <= MAX_LENGTH:
+                    break
+                if not history:
+                    raise ValueError(f"Example {index}: current example exceeds MAX_LENGTH")
+                history.pop(0)
+            input_ids = full_ids
+            labels = [-100] * len(prompt_ids) + full_ids[len(prompt_ids):]
 
             if len(input_ids) != len(labels):
                 raise ValueError(
@@ -224,18 +229,21 @@ def train(args):
             "CUDA is required for this QLoRA training script."
         )
 
-    if not INITIAL_ADAPTER.exists():
-        raise FileNotFoundError(INITIAL_ADAPTER)
+    if not args.initial_adapter.exists():
+        raise FileNotFoundError(args.initial_adapter)
+    if (args.output / "best_adapter").resolve() == args.initial_adapter.resolve():
+        raise ValueError("Output would overwrite the initial adapter")
+    validate_adapter_base(args.initial_adapter, args.base_model)
 
     print("=" * 60)
     print("LEVEL 2 CORRECTIVE FINE-TUNING")
     print("=" * 60)
     print("GPU:", torch.cuda.get_device_name(0))
-    print("Initial adapter:", INITIAL_ADAPTER)
+    print("Initial adapter:", args.initial_adapter)
     print("Output:", args.output)
 
     tokenizer = AutoTokenizer.from_pretrained(
-        INITIAL_ADAPTER
+        args.initial_adapter
     )
 
     if tokenizer.pad_token_id is None:
@@ -301,7 +309,7 @@ def train(args):
     )
 
     base_model = AutoModelForCausalLM.from_pretrained(
-        MODEL_NAME,
+        args.base_model,
         quantization_config=quantization_config,
         device_map="auto",
     )
@@ -314,7 +322,7 @@ def train(args):
 
     model = PeftModel.from_pretrained(
         base_model,
-        INITIAL_ADAPTER,
+        args.initial_adapter,
         is_trainable=True,
     )
 
@@ -366,6 +374,13 @@ def train(args):
     save_adapter(model, tokenizer, args.output / "best_adapter")
 
     history = {
+        "base_model": args.base_model,
+        "initial_adapter": str(args.initial_adapter),
+        "train_data": str(args.train_data),
+        "validation_data": str(args.validation_data),
+        "epochs_requested": args.epochs,
+        "learning_rate": args.learning_rate,
+        "seed": SEED,
         "initial_validation_loss": initial_val_loss,
         "epochs": [],
         "best_epoch": 0,
@@ -501,7 +516,11 @@ def main():
         help="Path to the validation JSONL dataset.",
     )
 
+    parser.add_argument("--initial-adapter", type=Path, default=INITIAL_ADAPTER)
+    parser.add_argument("--base-model", default=MODEL_NAME)
     args = parser.parse_args()
+    if args.epochs < 1 or args.learning_rate <= 0:
+        parser.error("epochs and learning rate must be positive")
     train(args)
 
 

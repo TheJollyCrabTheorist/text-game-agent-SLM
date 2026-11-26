@@ -191,6 +191,29 @@ def validate_game_result(report: FileReport, path: str, game: Any, strict: bool,
 
     parsed_steps = [validate_game_step(report, f"{path}.steps[{i}]", s, strict) for i, s in enumerate(steps)]
 
+    if game.get("reward_semantics") == "score_delta":
+        import math
+        total = 0.0
+        previous = None
+        valid = True
+        for i, step in enumerate(steps):
+            if not isinstance(step, dict) or not all(isinstance(step.get(k), (int, float)) for k in ("score", "next_score", "reward")):
+                report.error(f"{path}.steps[{i}]", "missing numeric scores or reward")
+                valid = False
+                continue
+            before, after, reward = (step[k] for k in ("score", "next_score", "reward"))
+            if not math.isclose(after - before, reward, abs_tol=1e-9):
+                report.error(f"{path}.steps[{i}]", "reward differs from score delta")
+            if previous is not None and not math.isclose(before, previous, abs_tol=1e-9):
+                report.error(f"{path}.steps[{i}]", "score discontinuity")
+            previous = after
+            total += reward
+        if valid and (not isinstance(game.get("total_reward"), (int, float)) or not math.isclose(total, game["total_reward"], abs_tol=1e-9)):
+            report.error(path, "total_reward differs from sum of score deltas")
+        if valid and previous is not None and (not isinstance(game.get("final_score"), (int, float)) or not math.isclose(previous, game["final_score"], abs_tol=1e-9)):
+            report.error(path, "final_score differs from final transition")
+
+
     if isinstance(game.get("num_steps"), int):
         if game["num_steps"] != len(steps):
             report.error(
@@ -403,7 +426,10 @@ def validate_training_history(report: FileReport, data: Any, strict: bool) -> No
     best_val = data.get("best_validation_loss")
     if isinstance(best_epoch, int) and epochs_val:
         matching = [e for e in epochs_val if isinstance(e, dict) and e.get("epoch") == best_epoch]
-        if not matching:
+        if best_epoch == 0 and is_finite_number(data.get("initial_validation_loss")):
+            if not is_finite_number(best_val) or not approx_equal(best_val, data["initial_validation_loss"], abs_tol=1e-12, rel_tol=1e-12):
+                report.error("$.best_validation_loss", "epoch 0 must match initial validation loss")
+        elif not matching:
             report.warn("$", f"best_epoch={best_epoch} not found in epochs")
         elif is_finite_number(best_val):
             epoch_val = matching[0].get("validation_loss")

@@ -3,6 +3,7 @@ from prepare_sft_dataset import (
     build_user_prompt,
 )
 
+from data_integrity import validate_history
 import json
 import math
 import random
@@ -58,7 +59,11 @@ def set_seed(seed):
 
 class TextWorldDataset(Dataset):
 
-    def __init__(self, path, tokenizer, max_length):
+    def __init__(self, path, tokenizer, max_length, prompt_version="ordered"):
+        if prompt_version == "legacy":
+            from evaluate_games import LEGACY_SYSTEM_PROMPT as system_prompt, build_legacy_user_prompt as builder
+        else:
+            system_prompt, builder = SYSTEM_PROMPT, build_user_prompt
         self.examples = []
 
         total_trimmed = 0
@@ -92,7 +97,7 @@ class TextWorldDataset(Dataset):
                 "content": messages[0]["content"],
             }
 
-            if system_message["content"] != SYSTEM_PROMPT:
+            if system_message["content"] != system_prompt:
                 raise ValueError(
                     f"Unexpected system prompt in {path}, "
                     f"game={row.get('game_id')}, step={row.get('step')}"
@@ -101,11 +106,14 @@ class TextWorldDataset(Dataset):
             action = messages[-1]["content"]
 
             bounded_history = list(row["previous_steps"])
+            validate_history(bounded_history, row["step"])
+            if builder(row["prompt_step"], bounded_history) != messages[1]["content"]:
+                raise ValueError("Stored prompt differs from structured data")
             removed_steps = 0
 
             while True:
 
-                user_prompt = build_user_prompt(
+                user_prompt = builder(
                     row["prompt_step"],
                     bounded_history,
                 )
@@ -328,15 +336,17 @@ def train(args):
     print("\n=== LOADING DATASETS ===")
 
     train_dataset = TextWorldDataset(
-        DATA_DIR / "train.jsonl",
+        args.data_dir / "train.jsonl",
         tokenizer,
         MAX_LENGTH,
+        args.prompt_version,
     )
 
     validation_dataset = TextWorldDataset(
-        DATA_DIR / "validation.jsonl",
+        args.data_dir / "validation.jsonl",
         tokenizer,
         MAX_LENGTH,
+        args.prompt_version,
     )
 
     collator = DataCollator(tokenizer)
@@ -576,6 +586,8 @@ if __name__ == "__main__":
         ),
     )
 
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    parser.add_argument("--prompt-version", choices=["legacy", "ordered"], default="ordered")
     args = parser.parse_args()
 
     OUTPUT_DIR = args.output

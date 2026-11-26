@@ -1,4 +1,6 @@
 import json
+import argparse
+from data_integrity import validate_history
 from pathlib import Path
 
 from evaluate_games import (
@@ -119,6 +121,15 @@ def build_validation_examples():
 
 
 def main():
+    global LEVEL1_REPLAY, LEVEL2_CORRECTIONS, LEVEL2_MANIFEST, LEVEL2_TRAJECTORIES, OUTPUT_DIR
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--replay", type=Path, default=LEVEL1_REPLAY)
+    parser.add_argument("--corrections", type=Path, default=LEVEL2_CORRECTIONS)
+    parser.add_argument("--manifest", type=Path, default=LEVEL2_MANIFEST)
+    parser.add_argument("--trajectories", type=Path, default=LEVEL2_TRAJECTORIES)
+    parser.add_argument("--output", type=Path, default=OUTPUT_DIR)
+    args = parser.parse_args()
+    LEVEL1_REPLAY, LEVEL2_CORRECTIONS, LEVEL2_MANIFEST, LEVEL2_TRAJECTORIES, OUTPUT_DIR = (p.resolve() for p in (args.replay, args.corrections, args.manifest, args.trajectories, args.output))
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # Level 1 replay.
@@ -128,6 +139,8 @@ def main():
     correction_examples = read_jsonl(LEVEL2_CORRECTIONS)
 
     # Integrity checks.
+    for example in replay_examples + correction_examples:
+        validate_history(example["previous_steps"], example["step"])
     for example in replay_examples:
         assert example["split"] == "train"
         assert example["messages"][0]["content"] == LEGACY_SYSTEM_PROMPT
@@ -176,8 +189,8 @@ def main():
         },
         "validation": validation_report,
         "files": {
-            "train": str(train_path.relative_to(PROJECT_ROOT)),
-            "validation": str(validation_path.relative_to(PROJECT_ROOT)),
+            "train": str(train_path),
+            "validation": str(validation_path),
         },
     }
 

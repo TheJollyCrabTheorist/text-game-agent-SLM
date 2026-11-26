@@ -1,4 +1,5 @@
 import json
+import argparse
 from pathlib import Path
 
 from evaluate_games import (
@@ -17,6 +18,14 @@ OUTPUT_PATH = OUTPUT_DIR / "train.jsonl"
 
 
 def main():
+    global TRAJECTORIES_DIR, OUTPUT_DIR, OUTPUT_PATH
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--trajectories", type=Path, default=TRAJECTORIES_DIR)
+    parser.add_argument("--output", type=Path, default=OUTPUT_DIR)
+    args = parser.parse_args()
+    TRAJECTORIES_DIR = args.trajectories.resolve()
+    OUTPUT_DIR = args.output.resolve()
+    OUTPUT_PATH = OUTPUT_DIR / "train.jsonl"
     manifest = json.loads(MANIFEST_PATH.read_text())
 
     # Only use Level 1 training games.
@@ -108,7 +117,7 @@ def main():
         "missing_games": missing_games,
         "unsuccessful_games": unsuccessful_games,
         "invalid_actions": invalid_actions,
-        "output": str(OUTPUT_PATH.relative_to(PROJECT_ROOT)),
+        "output": str(OUTPUT_PATH),
     }
 
     report_path = OUTPUT_DIR / "collection_report.json"

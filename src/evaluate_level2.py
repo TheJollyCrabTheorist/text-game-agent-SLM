@@ -5,6 +5,7 @@ from pathlib import Path
 from evaluate_games import (
     PROJECT_ROOT,
     BASE_MODEL_NAME,
+    REPETITION_PENALTY,
     load_model,
     evaluate_game,
 )
@@ -71,7 +72,10 @@ def main():
         help="Directory containing expert trajectories (optional)."
     )
     
+    parser.add_argument("--repetition-penalty", type=float, default=REPETITION_PENALTY)
     args = parser.parse_args()
+    if args.max_steps < 1 or not (0 < args.repetition_penalty < float("inf")):
+        parser.error("max steps and repetition penalty must be positive (finite penalty)")
 
     adapter_path = (
         None if args.adapter.lower() == "none"
@@ -124,6 +128,7 @@ def main():
             game_path=game_path,
             max_steps=args.max_steps,
             prompt_version=args.prompt_version,
+            repetition_penalty=args.repetition_penalty,
         )
 
         # Attach expert reference when available.
@@ -182,7 +187,9 @@ def main():
     summary = {
         "experiment": f"level2_zero_shot_{args.prompt_version}",
         "prompt_version": args.prompt_version,
-        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "model": args.base_model,
+        "reward_semantics": "score_delta",
+        "repetition_penalty": args.repetition_penalty,
         "adapter": str(adapter_path) if adapter_path else None,
         "split": args.split,
         "num_games": num_games,

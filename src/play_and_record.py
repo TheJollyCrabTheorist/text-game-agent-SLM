@@ -1,5 +1,6 @@
 import re
 import argparse
+from data_integrity import score_delta
 import json
 from pathlib import Path
 from datetime import datetime, timezone
@@ -65,7 +66,9 @@ def play_game(game_path, output_path, max_steps=50):
         inventory=True,
         description=True,
         won=True,
-        lost=True
+        lost=True,
+        score=True,
+        max_score=True
     )
 
     # Register and initialize the environment.
@@ -90,6 +93,7 @@ def play_game(game_path, output_path, max_steps=50):
 
     try:
         observation, infos = env.reset()
+        current_score = float(infos["score"])
 
         print("\n" + "=" * 60)
         print("TEXTWORLD GAME")
@@ -128,13 +132,16 @@ def play_game(game_path, output_path, max_steps=50):
 
             # Record the transition.
             transition = {
-                "step": step,
+                "step": len(trajectory["steps"]),
                 "observation": sanitize_observation(observation),
                 "inventory": infos.get("inventory"),
                 "admissible_commands": admissible,
                 "action": command,
                 "next_observation": sanitize_observation(next_observation),
-                "reward": float(score),
+                "score": current_score,
+                "next_score": float(score),
+                "max_score": float(infos["max_score"]),
+                "reward": score_delta(current_score, score),
                 "done": bool(done),
                 "won": next_infos.get("won"),
                 "lost": next_infos.get("lost"),
@@ -153,6 +160,7 @@ def play_game(game_path, output_path, max_steps=50):
 
             observation = next_observation
             infos = next_infos
+            current_score = float(score)
 
             if done:
                 break
@@ -162,11 +170,9 @@ def play_game(game_path, output_path, max_steps=50):
             for step in trajectory["steps"]
         )
 
-        trajectory["total_reward"] = (
-            float(trajectory["steps"][-1]["reward"])
-            if trajectory["steps"]
-            else 0.0
-        )
+        trajectory["total_reward"] = sum(s["reward"] for s in trajectory["steps"])
+        trajectory["final_score"] = current_score
+        trajectory["reward_semantics"] = "score_delta"
 
         trajectory["num_steps"] = len(trajectory["steps"])
 

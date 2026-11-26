@@ -1,4 +1,5 @@
 import argparse
+from data_integrity import score_delta, validate_adapter_base
 import json
 import re
 from datetime import datetime, timezone
@@ -280,6 +281,9 @@ def load_model(adapter_path=None, base_model_name=BASE_MODEL_NAME):
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA is not available.")
 
+    if adapter_path is not None:
+        validate_adapter_base(adapter_path, base_model_name)
+
     print("\n=== LOADING TOKENIZER ===")
 
     tokenizer = AutoTokenizer.from_pretrained(base_model_name)
@@ -347,6 +351,7 @@ def generate_action(
     prompt_version="legacy",
     score=None,
     max_score=None,
+    repetition_penalty=REPETITION_PENALTY,
 ):
     """
     Generate the next action.
@@ -446,7 +451,7 @@ def generate_action(
         attention_mask=attention_mask,
         max_new_tokens=MAX_NEW_TOKENS,
         do_sample=False,
-        repetition_penalty=REPETITION_PENALTY,
+        repetition_penalty=repetition_penalty,
         pad_token_id=tokenizer.pad_token_id,
         eos_token_id=tokenizer.eos_token_id,
     )
@@ -468,6 +473,7 @@ def evaluate_game(
     game_path,
     max_steps=MAX_STEPS,
     prompt_version="legacy",
+    repetition_penalty=REPETITION_PENALTY,
 ):
     """Evaluate the model on one TextWorld game."""
 
@@ -541,6 +547,7 @@ def evaluate_game(
                 prompt_version=prompt_version,
                 score=current_score,
                 max_score=current_max_score,
+                repetition_penalty=repetition_penalty,
             )
 
             is_admissible = action in admissible_commands
@@ -557,7 +564,8 @@ def evaluate_game(
                 f"     Admissible: {is_admissible}"
             )
 
-            next_state, reward, done = env.step(action)
+            next_state, env_score, done = env.step(action)
+            reward = score_delta(current_score, next_state.score)
 
             transition = {
                 "step": step,
@@ -604,6 +612,8 @@ def evaluate_game(
                 if trajectory else 0.0
             ),
             "max_score": float(state.max_score),
+            "final_score": float(state.score),
+            "reward_semantics": "score_delta",
             "total_reward": sum(
                 transition["reward"]
                 for transition in trajectory
@@ -630,6 +640,8 @@ def evaluate_test_set(
     output_path=None,
     split="validation",
     prompt_version="legacy",
+    base_model_name=BASE_MODEL_NAME,
+    repetition_penalty=REPETITION_PENALTY,
 ):
     """
     Evaluate the model on a selected dataset split.
@@ -690,6 +702,7 @@ def evaluate_test_set(
             game_path=game_path,
             max_steps=max_steps,
             prompt_version=prompt_version,
+            repetition_penalty=repetition_penalty,
         )
 
         results.append(result)
@@ -728,7 +741,9 @@ def evaluate_test_set(
 
     summary = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "model": MODEL_NAME,
+        "model": base_model_name,
+        "reward_semantics": "score_delta",
+        "repetition_penalty": repetition_penalty,
         "adapter": (
             str(adapter_path)
             if adapter_path is not None
@@ -841,7 +856,10 @@ def main():
         help="Prompt format matching the model's training configuration.",
     )
 
+    parser.add_argument("--repetition-penalty", type=float, default=REPETITION_PENALTY)
     args = parser.parse_args()
+    if not (0 < args.repetition_penalty < float("inf")):
+        parser.error("repetition penalty must be positive and finite")
 
     if args.max_steps < 1:
         parser.error("--max-steps must be at least 1.")
@@ -863,8 +881,10 @@ def main():
         adapter_path=adapter_path,
         max_steps=args.max_steps,
         output_path=args.output,
+        base_model_name=args.base_model,
         split=args.split,
         prompt_version=args.prompt_version,
+        repetition_penalty=args.repetition_penalty,
     )
 
 
