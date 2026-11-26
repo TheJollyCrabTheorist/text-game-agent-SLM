@@ -1,0 +1,1022 @@
+{
+  "created_at": "2026-11-03T16:45:21.909851+00:00",
+  "generator": "TextWorld tw-make custom",
+  "num_games": 100,
+  "base_seed": 42,
+  "split_seed": 42,
+  "generation_parameters": {
+    "world_size": 5,
+    "nb_objects": 10,
+    "quest_length": 5
+  },
+  "splits": {
+    "train": [
+      "game_0042",
+      "game_0041",
+      "game_0091",
+      "game_0009",
+      "game_0065",
+      "game_0050",
+      "game_0001",
+      "game_0070",
+      "game_0015",
+      "game_0078",
+      "game_0073",
+      "game_0010",
+      "game_0055",
+      "game_0056",
+      "game_0072",
+      "game_0045",
+      "game_0048",
+      "game_0092",
+      "game_0076",
+      "game_0037",
+      "game_0030",
+      "game_0021",
+      "game_0032",
+      "game_0096",
+      "game_0080",
+      "game_0049",
+      "game_0083",
+      "game_0026",
+      "game_0087",
+      "game_0033",
+      "game_0008",
+      "game_0047",
+      "game_0059",
+      "game_0063",
+      "game_0074",
+      "game_0044",
+      "game_0098",
+      "game_0052",
+      "game_0085",
+      "game_0012",
+      "game_0036",
+      "game_0023",
+      "game_0039",
+      "game_0040",
+      "game_0018",
+      "game_0066",
+      "game_0061",
+      "game_0060",
+      "game_0007",
+      "game_0034",
+      "game_0099",
+      "game_0046",
+      "game_0002",
+      "game_0051",
+      "game_0016",
+      "game_0038",
+      "game_0058",
+      "game_0068",
+      "game_0022",
+      "game_0062",
+      "game_0024",
+      "game_0005",
+      "game_0006",
+      "game_0067",
+      "game_0082",
+      "game_0019",
+      "game_0079",
+      "game_0043",
+      "game_0090",
+      "game_0020"
+    ],
+    "validation": [
+      "game_0000",
+      "game_0095",
+      "game_0057",
+      "game_0093",
+      "game_0053",
+      "game_0089",
+      "game_0025",
+      "game_0071",
+      "game_0084",
+      "game_0077",
+      "game_0064",
+      "game_0029",
+      "game_0027",
+      "game_0088",
+      "game_0097"
+    ],
+    "test": [
+      "game_0004",
+      "game_0054",
+      "game_0075",
+      "game_0011",
+      "game_0069",
+      "game_0086",
+      "game_0013",
+      "game_0017",
+      "game_0028",
+      "game_0031",
+      "game_0035",
+      "game_0094",
+      "game_0003",
+      "game_0014",
+      "game_0081"
+    ]
+  },
+  "games": [
+    {
+      "game_id": "game_0000",
+      "seed": 42,
+      "game_path": "data/raw/games/game_0000.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0001",
+      "seed": 43,
+      "game_path": "data/raw/games/game_0001.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0002",
+      "seed": 44,
+      "game_path": "data/raw/games/game_0002.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0003",
+      "seed": 45,
+      "game_path": "data/raw/games/game_0003.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0004",
+      "seed": 46,
+      "game_path": "data/raw/games/game_0004.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0005",
+      "seed": 47,
+      "game_path": "data/raw/games/game_0005.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0006",
+      "seed": 48,
+      "game_path": "data/raw/games/game_0006.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0007",
+      "seed": 49,
+      "game_path": "data/raw/games/game_0007.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0008",
+      "seed": 50,
+      "game_path": "data/raw/games/game_0008.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0009",
+      "seed": 51,
+      "game_path": "data/raw/games/game_0009.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0010",
+      "seed": 52,
+      "game_path": "data/raw/games/game_0010.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0011",
+      "seed": 53,
+      "game_path": "data/raw/games/game_0011.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0012",
+      "seed": 54,
+      "game_path": "data/raw/games/game_0012.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0013",
+      "seed": 55,
+      "game_path": "data/raw/games/game_0013.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0014",
+      "seed": 56,
+      "game_path": "data/raw/games/game_0014.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0015",
+      "seed": 57,
+      "game_path": "data/raw/games/game_0015.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0016",
+      "seed": 58,
+      "game_path": "data/raw/games/game_0016.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0017",
+      "seed": 59,
+      "game_path": "data/raw/games/game_0017.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0018",
+      "seed": 60,
+      "game_path": "data/raw/games/game_0018.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0019",
+      "seed": 61,
+      "game_path": "data/raw/games/game_0019.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0020",
+      "seed": 62,
+      "game_path": "data/raw/games/game_0020.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0021",
+      "seed": 63,
+      "game_path": "data/raw/games/game_0021.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0022",
+      "seed": 64,
+      "game_path": "data/raw/games/game_0022.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0023",
+      "seed": 65,
+      "game_path": "data/raw/games/game_0023.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0024",
+      "seed": 66,
+      "game_path": "data/raw/games/game_0024.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0025",
+      "seed": 67,
+      "game_path": "data/raw/games/game_0025.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0026",
+      "seed": 68,
+      "game_path": "data/raw/games/game_0026.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0027",
+      "seed": 69,
+      "game_path": "data/raw/games/game_0027.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0028",
+      "seed": 70,
+      "game_path": "data/raw/games/game_0028.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0029",
+      "seed": 71,
+      "game_path": "data/raw/games/game_0029.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0030",
+      "seed": 72,
+      "game_path": "data/raw/games/game_0030.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0031",
+      "seed": 73,
+      "game_path": "data/raw/games/game_0031.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0032",
+      "seed": 74,
+      "game_path": "data/raw/games/game_0032.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0033",
+      "seed": 75,
+      "game_path": "data/raw/games/game_0033.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0034",
+      "seed": 76,
+      "game_path": "data/raw/games/game_0034.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0035",
+      "seed": 77,
+      "game_path": "data/raw/games/game_0035.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0036",
+      "seed": 78,
+      "game_path": "data/raw/games/game_0036.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0037",
+      "seed": 79,
+      "game_path": "data/raw/games/game_0037.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0038",
+      "seed": 80,
+      "game_path": "data/raw/games/game_0038.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0039",
+      "seed": 81,
+      "game_path": "data/raw/games/game_0039.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0040",
+      "seed": 82,
+      "game_path": "data/raw/games/game_0040.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0041",
+      "seed": 83,
+      "game_path": "data/raw/games/game_0041.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0042",
+      "seed": 84,
+      "game_path": "data/raw/games/game_0042.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0043",
+      "seed": 85,
+      "game_path": "data/raw/games/game_0043.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0044",
+      "seed": 86,
+      "game_path": "data/raw/games/game_0044.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0045",
+      "seed": 87,
+      "game_path": "data/raw/games/game_0045.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0046",
+      "seed": 88,
+      "game_path": "data/raw/games/game_0046.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0047",
+      "seed": 89,
+      "game_path": "data/raw/games/game_0047.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0048",
+      "seed": 90,
+      "game_path": "data/raw/games/game_0048.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0049",
+      "seed": 91,
+      "game_path": "data/raw/games/game_0049.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0050",
+      "seed": 92,
+      "game_path": "data/raw/games/game_0050.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0051",
+      "seed": 93,
+      "game_path": "data/raw/games/game_0051.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0052",
+      "seed": 94,
+      "game_path": "data/raw/games/game_0052.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0053",
+      "seed": 95,
+      "game_path": "data/raw/games/game_0053.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0054",
+      "seed": 96,
+      "game_path": "data/raw/games/game_0054.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0055",
+      "seed": 97,
+      "game_path": "data/raw/games/game_0055.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0056",
+      "seed": 98,
+      "game_path": "data/raw/games/game_0056.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0057",
+      "seed": 99,
+      "game_path": "data/raw/games/game_0057.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0058",
+      "seed": 100,
+      "game_path": "data/raw/games/game_0058.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0059",
+      "seed": 101,
+      "game_path": "data/raw/games/game_0059.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0060",
+      "seed": 102,
+      "game_path": "data/raw/games/game_0060.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0061",
+      "seed": 103,
+      "game_path": "data/raw/games/game_0061.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0062",
+      "seed": 104,
+      "game_path": "data/raw/games/game_0062.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0063",
+      "seed": 105,
+      "game_path": "data/raw/games/game_0063.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0064",
+      "seed": 106,
+      "game_path": "data/raw/games/game_0064.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0065",
+      "seed": 107,
+      "game_path": "data/raw/games/game_0065.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0066",
+      "seed": 108,
+      "game_path": "data/raw/games/game_0066.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0067",
+      "seed": 109,
+      "game_path": "data/raw/games/game_0067.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0068",
+      "seed": 110,
+      "game_path": "data/raw/games/game_0068.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0069",
+      "seed": 111,
+      "game_path": "data/raw/games/game_0069.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0070",
+      "seed": 112,
+      "game_path": "data/raw/games/game_0070.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0071",
+      "seed": 113,
+      "game_path": "data/raw/games/game_0071.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0072",
+      "seed": 114,
+      "game_path": "data/raw/games/game_0072.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0073",
+      "seed": 115,
+      "game_path": "data/raw/games/game_0073.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0074",
+      "seed": 116,
+      "game_path": "data/raw/games/game_0074.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0075",
+      "seed": 117,
+      "game_path": "data/raw/games/game_0075.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0076",
+      "seed": 118,
+      "game_path": "data/raw/games/game_0076.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0077",
+      "seed": 119,
+      "game_path": "data/raw/games/game_0077.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0078",
+      "seed": 120,
+      "game_path": "data/raw/games/game_0078.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0079",
+      "seed": 121,
+      "game_path": "data/raw/games/game_0079.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0080",
+      "seed": 122,
+      "game_path": "data/raw/games/game_0080.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0081",
+      "seed": 123,
+      "game_path": "data/raw/games/game_0081.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0082",
+      "seed": 124,
+      "game_path": "data/raw/games/game_0082.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0083",
+      "seed": 125,
+      "game_path": "data/raw/games/game_0083.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0084",
+      "seed": 126,
+      "game_path": "data/raw/games/game_0084.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0085",
+      "seed": 127,
+      "game_path": "data/raw/games/game_0085.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0086",
+      "seed": 128,
+      "game_path": "data/raw/games/game_0086.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0087",
+      "seed": 129,
+      "game_path": "data/raw/games/game_0087.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0088",
+      "seed": 130,
+      "game_path": "data/raw/games/game_0088.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0089",
+      "seed": 131,
+      "game_path": "data/raw/games/game_0089.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0090",
+      "seed": 132,
+      "game_path": "data/raw/games/game_0090.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0091",
+      "seed": 133,
+      "game_path": "data/raw/games/game_0091.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0092",
+      "seed": 134,
+      "game_path": "data/raw/games/game_0092.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0093",
+      "seed": 135,
+      "game_path": "data/raw/games/game_0093.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0094",
+      "seed": 136,
+      "game_path": "data/raw/games/game_0094.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "test"
+    },
+    {
+      "game_id": "game_0095",
+      "seed": 137,
+      "game_path": "data/raw/games/game_0095.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0096",
+      "seed": 138,
+      "game_path": "data/raw/games/game_0096.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0097",
+      "seed": 139,
+      "game_path": "data/raw/games/game_0097.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "validation"
+    },
+    {
+      "game_id": "game_0098",
+      "seed": 140,
+      "game_path": "data/raw/games/game_0098.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    },
+    {
+      "game_id": "game_0099",
+      "seed": 141,
+      "game_path": "data/raw/games/game_0099.z8",
+      "world_size": 5,
+      "nb_objects": 10,
+      "quest_length": 5,
+      "split": "train"
+    }
+  ]
+}

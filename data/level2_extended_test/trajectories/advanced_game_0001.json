@@ -1,0 +1,141 @@
+{
+  "game_id": "advanced_game_0001",
+  "game_path": "/home/thejollycrabtheorist/epita/scia/rl-project/text-game-agent/data/level2_extended_test/games/advanced_game_0001.z8",
+  "agent": "WalkthroughAgent",
+  "timestamp": "2026-11-05T14:58:34.973856+00:00",
+  "objective": "Welcome to another life changing game of TextWorld! Here is how to play! First of all, you could, like, make an attempt to move north. With that over with, recover the passkey from the floor of the laundry place. And then, venture south. And then, go to the west. Okay, and then, doublecheck that the door inside the salon is unlocked with the passkey. And if you do that, you're the winner!",
+  "steps": [
+    {
+      "step": 0,
+      "objective": "Welcome to another life changing game of TextWorld! Here is how to play! First of all, you could, like, make an attempt to move north. With that over with, recover the passkey from the floor of the laundry place. And then, venture south. And then, go to the west. Okay, and then, doublecheck that the door inside the salon is unlocked with the passkey. And if you do that, you're the winner!",
+      "observation": "-= Shower =-\nYou are in a shower. An usual kind of place. You can barely contain your excitement.\n\n\n\nYou need an unguarded exit? You should try going north. There is an unguarded exit to the west.\n\nThere is a soap dispenser on the floor.\n\n>                                                                                                                                -= Shower =-0/1",
+      "inventory": "You are carrying nothing.",
+      "admissible_commands": [
+        "examine soap dispenser",
+        "go north",
+        "go west",
+        "inventory",
+        "look",
+        "take soap dispenser"
+      ],
+      "action": "go north",
+      "next_observation": "-= Laundry Place =-\nYou are in a laundry place. A normal one.\n\n\n\nYou don't like doors? Why not try going south, that entranceway is unblocked. There is an exit to the west. Don't worry, it is unblocked.\n\nThere is a passkey on the floor.\n\n\nYour score has just gone up by one point.\n\n>                                                                                                                                -= Laundry Place =-1/2",
+      "next_inventory": "You are carrying nothing.",
+      "reward": 1.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 1,
+      "objective": "Welcome to another life changing game of TextWorld! Here is how to play! First of all, you could, like, make an attempt to move north. With that over with, recover the passkey from the floor of the laundry place. And then, venture south. And then, go to the west. Okay, and then, doublecheck that the door inside the salon is unlocked with the passkey. And if you do that, you're the winner!",
+      "observation": "-= Laundry Place =-\nYou are in a laundry place. A normal one.\n\n\n\nYou don't like doors? Why not try going south, that entranceway is unblocked. There is an exit to the west. Don't worry, it is unblocked.\n\nThere is a passkey on the floor.\n\n\nYour score has just gone up by one point.\n\n>                                                                                                                                -= Laundry Place =-1/2",
+      "inventory": "You are carrying nothing.",
+      "admissible_commands": [
+        "examine passkey",
+        "go south",
+        "go west",
+        "inventory",
+        "look",
+        "take passkey"
+      ],
+      "action": "take passkey",
+      "next_observation": "You pick up the passkey from the ground.\n\n\n\n>                                                                                                                                -= Laundry Place =-1/3",
+      "next_inventory": "You are carrying: a passkey.",
+      "reward": 1.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 2,
+      "objective": "Welcome to another life changing game of TextWorld! Here is how to play! First of all, you could, like, make an attempt to move north. With that over with, recover the passkey from the floor of the laundry place. And then, venture south. And then, go to the west. Okay, and then, doublecheck that the door inside the salon is unlocked with the passkey. And if you do that, you're the winner!",
+      "observation": "You pick up the passkey from the ground.\n\n\n\n>                                                                                                                                -= Laundry Place =-1/3",
+      "inventory": "You are carrying: a passkey.",
+      "admissible_commands": [
+        "drop passkey",
+        "examine passkey",
+        "go south",
+        "go west",
+        "inventory",
+        "look"
+      ],
+      "action": "go south",
+      "next_observation": "-= Shower =-\nYou are in a shower. An usual kind of place. You can barely contain your excitement.\n\n\n\nYou need an unguarded exit? You should try going north. There is an unguarded exit to the west.\n\nThere is a soap dispenser on the floor.\n\n\n>                                                                                                                                -= Shower =-1/4",
+      "next_inventory": "You are carrying: a passkey.",
+      "reward": 1.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 3,
+      "objective": "Welcome to another life changing game of TextWorld! Here is how to play! First of all, you could, like, make an attempt to move north. With that over with, recover the passkey from the floor of the laundry place. And then, venture south. And then, go to the west. Okay, and then, doublecheck that the door inside the salon is unlocked with the passkey. And if you do that, you're the winner!",
+      "observation": "-= Shower =-\nYou are in a shower. An usual kind of place. You can barely contain your excitement.\n\n\n\nYou need an unguarded exit? You should try going north. There is an unguarded exit to the west.\n\nThere is a soap dispenser on the floor.\n\n\n>                                                                                                                                -= Shower =-1/4",
+      "inventory": "You are carrying: a passkey.",
+      "admissible_commands": [
+        "drop passkey",
+        "examine passkey",
+        "examine soap dispenser",
+        "go north",
+        "go west",
+        "inventory",
+        "look",
+        "take soap dispenser"
+      ],
+      "action": "go west",
+      "next_observation": "-= Salon =-\nYou arrive in a salon. An usual kind of place.\n\n\n\nThere is a closed door leading west. You need an unguarded exit? You should try going east. There is an exit to the north. Don't worry, it is unguarded. You need an unguarded exit? You should try going south.\n\n\n\n>                                                                                                                                -= Salon =-1/5",
+      "next_inventory": "You are carrying: a passkey.",
+      "reward": 1.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 4,
+      "objective": "Welcome to another life changing game of TextWorld! Here is how to play! First of all, you could, like, make an attempt to move north. With that over with, recover the passkey from the floor of the laundry place. And then, venture south. And then, go to the west. Okay, and then, doublecheck that the door inside the salon is unlocked with the passkey. And if you do that, you're the winner!",
+      "observation": "-= Salon =-\nYou arrive in a salon. An usual kind of place.\n\n\n\nThere is a closed door leading west. You need an unguarded exit? You should try going east. There is an exit to the north. Don't worry, it is unguarded. You need an unguarded exit? You should try going south.\n\n\n\n>                                                                                                                                -= Salon =-1/5",
+      "inventory": "You are carrying: a passkey.",
+      "admissible_commands": [
+        "drop passkey",
+        "examine door",
+        "examine passkey",
+        "go east",
+        "go north",
+        "go south",
+        "inventory",
+        "look",
+        "unlock door with passkey"
+      ],
+      "action": "unlock door with passkey",
+      "next_observation": "You unlock door.\n\n\nYour score has just gone up by one point.\n\n\n                                                       *** The End ***\n\nYou scored 2 out of a possible 2, in 6 turns.\n\n\nWould you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?\n>                                                                                                                                 -= Salon =-1/5",
+      "next_inventory": "You are carrying: a passkey.",
+      "reward": 2.0,
+      "done": true,
+      "won": true,
+      "lost": false
+    }
+  ],
+  "success": true,
+  "total_reward": 6.0,
+  "num_steps": 5,
+  "environment_done": true,
+  "won": true,
+  "max_score": 2.0,
+  "split": "test",
+  "seed": 20001,
+  "generation_parameters": {
+    "world_size": 8,
+    "nb_objects": 15,
+    "quest_min_length": 5,
+    "quest_max_length": 8,
+    "quest_min_breadth": 2,
+    "quest_max_breadth": 3,
+    "quest_min_depth": 2,
+    "quest_max_depth": 4,
+    "nb_parallel_quests": 1,
+    "theme": "house",
+    "ambiguous_instructions": false,
+    "blend_descriptions": false
+  }
+}

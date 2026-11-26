@@ -1,0 +1,9 @@
+{
+  "num_expected_games": 70,
+  "num_examples": 347,
+  "num_games_used": 70,
+  "missing_games": [],
+  "unsuccessful_games": [],
+  "invalid_actions": [],
+  "output": "data/level2/replay_level1_scored/train.jsonl"
+}

@@ -1,0 +1,110 @@
+{
+  "game_id": "game_0006",
+  "game_path": "/home/thejollycrabtheorist/epita/scia/rl-project/text-game-agent/data/raw/games/game_0006.z8",
+  "agent": "WalkthroughAgent",
+  "timestamp": "2026-11-04T13:33:46.095086+00:00",
+  "objective": "Who's got a virtual machine and is about to play through an profound round of TextWorld? You do! Here is how to play! First off, make an effort to venture west. And then, make an effort to head west. And then, take the sandwich from the workbench in the spare room. And then, eat the sandwich. That's it!",
+  "steps": [
+    {
+      "step": 0,
+      "objective": "Who's got a virtual machine and is about to play through an profound round of TextWorld? You do! Here is how to play! First off, make an effort to venture west. And then, make an effort to head west. And then, take the sandwich from the workbench in the spare room. And then, eat the sandwich. That's it!",
+      "observation": "-= Launderette =-\nYou're now in a launderette. You can barely contain your excitement.\n\n\n\nYou need an unguarded exit? You should try going south. You need an unblocked exit? You should try going west.\n\n>                                                                                                                                -= Launderette =-0/1",
+      "inventory": "You are carrying nothing.",
+      "admissible_commands": [
+        "go south",
+        "go west",
+        "inventory",
+        "look"
+      ],
+      "action": "go west",
+      "next_observation": "-= Studio =-\nYou're now in the studio.\n\nYou make out a toolbox.\n\nThere is an exit to the east. Don't worry, it is unguarded. You don't like doors? Why not try going south, that entranceway is unguarded. You don't like doors? Why not try going west, that entranceway is unguarded.\n\n\n\n>                                                                                                                                -= Studio =-0/2",
+      "next_inventory": "You are carrying nothing.",
+      "reward": 0.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 1,
+      "objective": "Who's got a virtual machine and is about to play through an profound round of TextWorld? You do! Here is how to play! First off, make an effort to venture west. And then, make an effort to head west. And then, take the sandwich from the workbench in the spare room. And then, eat the sandwich. That's it!",
+      "observation": "-= Studio =-\nYou're now in the studio.\n\nYou make out a toolbox.\n\nThere is an exit to the east. Don't worry, it is unguarded. You don't like doors? Why not try going south, that entranceway is unguarded. You don't like doors? Why not try going west, that entranceway is unguarded.\n\n\n\n>                                                                                                                                -= Studio =-0/2",
+      "inventory": "You are carrying nothing.",
+      "admissible_commands": [
+        "examine toolbox",
+        "go east",
+        "go south",
+        "go west",
+        "inventory",
+        "look"
+      ],
+      "action": "go west",
+      "next_observation": "-= Spare Room =-\nYou arrive in a spare room.\n\nYou see a workbench. On the workbench you can make out a sandwich.\n\nThere is an exit to the east. Don't worry, it is unblocked.\n\nThere is a sock on the floor.\n\n\n>                                                                                                                                -= Spare Room =-0/3",
+      "next_inventory": "You are carrying nothing.",
+      "reward": 0.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 2,
+      "objective": "Who's got a virtual machine and is about to play through an profound round of TextWorld? You do! Here is how to play! First off, make an effort to venture west. And then, make an effort to head west. And then, take the sandwich from the workbench in the spare room. And then, eat the sandwich. That's it!",
+      "observation": "-= Spare Room =-\nYou arrive in a spare room.\n\nYou see a workbench. On the workbench you can make out a sandwich.\n\nThere is an exit to the east. Don't worry, it is unblocked.\n\nThere is a sock on the floor.\n\n\n>                                                                                                                                -= Spare Room =-0/3",
+      "inventory": "You are carrying nothing.",
+      "admissible_commands": [
+        "examine sandwich",
+        "examine sock",
+        "examine workbench",
+        "go east",
+        "inventory",
+        "look",
+        "take sandwich from workbench",
+        "take sock"
+      ],
+      "action": "take sandwich from workbench",
+      "next_observation": "You take the sandwich from the workbench.\n\n\n\n>                                                                                                                                -= Spare Room =-0/4",
+      "next_inventory": "You are carrying: a sandwich.",
+      "reward": 0.0,
+      "done": false,
+      "won": false,
+      "lost": false
+    },
+    {
+      "step": 3,
+      "objective": "Who's got a virtual machine and is about to play through an profound round of TextWorld? You do! Here is how to play! First off, make an effort to venture west. And then, make an effort to head west. And then, take the sandwich from the workbench in the spare room. And then, eat the sandwich. That's it!",
+      "observation": "You take the sandwich from the workbench.\n\n\n\n>                                                                                                                                -= Spare Room =-0/4",
+      "inventory": "You are carrying: a sandwich.",
+      "admissible_commands": [
+        "drop sandwich",
+        "eat sandwich",
+        "examine sandwich",
+        "examine sock",
+        "examine workbench",
+        "go east",
+        "inventory",
+        "look",
+        "put sandwich on workbench",
+        "take sock"
+      ],
+      "action": "eat sandwich",
+      "next_observation": "You eat the sandwich. Not bad.\n\n\nYour score has just gone up by one point.\n\n\n                                                       *** The End ***\n\nYou scored 1 out of a possible 1, in 5 turns.\n\n\nWould you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?\n>                                                                                                                                 -= Spare Room =-0/4",
+      "next_inventory": "You are carrying nothing.",
+      "reward": 1.0,
+      "done": true,
+      "won": true,
+      "lost": false
+    }
+  ],
+  "success": true,
+  "total_reward": 1.0,
+  "num_steps": 4,
+  "environment_done": true,
+  "won": true,
+  "max_score": 1.0,
+  "split": "train",
+  "seed": 48,
+  "generation_parameters": {
+    "world_size": 5,
+    "nb_objects": 10,
+    "quest_length": 5
+  }
+}
