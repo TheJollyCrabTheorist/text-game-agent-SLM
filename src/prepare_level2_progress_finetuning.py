@@ -26,6 +26,7 @@ OUTPUT_DIR = PROJECT_ROOT / "data/level2/finetuning_progress_corrected"
 
 
 def read_jsonl(path):
+    """Read a JSONL file into a list of dicts."""
     with path.open(encoding="utf-8") as file:
         return [
             json.loads(line)
@@ -64,6 +65,7 @@ def build_progress_example(example):
 
 
 def build_validation_examples():
+    """Build validation examples for the progress fine-tuning."""
     manifest = json.loads(
         LEVEL2_MANIFEST.read_text(encoding="utf-8")
     )
@@ -160,6 +162,7 @@ def build_validation_examples():
 
 
 def main():
+    """Run the progress fine-tuning dataset preparation pipeline."""
     global LEVEL1_REPLAY, LEVEL2_CORRECTIONS, LEVEL2_MANIFEST, LEVEL2_TRAJECTORIES, OUTPUT_DIR
     parser = argparse.ArgumentParser()
     parser.add_argument("--replay", type=Path, default=LEVEL1_REPLAY)

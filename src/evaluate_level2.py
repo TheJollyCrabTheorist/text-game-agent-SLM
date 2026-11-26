@@ -14,6 +14,7 @@ MANIFEST_PATH = PROJECT_ROOT / "data/level2/splits.json"
 
 
 def main():
+    """Run the level 2 evaluation pipeline."""
     parser = argparse.ArgumentParser(
         description="Evaluate a Level 1 model on Level 2 TextWorld games."
     )

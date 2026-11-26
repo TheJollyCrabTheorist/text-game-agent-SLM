@@ -38,6 +38,7 @@ def sanitize_observation(observation):
 
 def collect_walkthrough(game_path, output_path, max_steps=100):
 
+    """Collect a single walkthrough trajectory with an oracle agent."""
     game_path = Path(game_path)
     output_path = Path(output_path)
 

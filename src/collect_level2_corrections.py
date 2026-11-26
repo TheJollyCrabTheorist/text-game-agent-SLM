@@ -22,6 +22,7 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "data/level2/corrections"
 
 
 def load_json(path):
+    """Load a JSON file from disk."""
     with open(path, "r", encoding="utf-8") as file:
         return json.load(file)
 
@@ -151,6 +152,7 @@ def build_example(game_id, model_step, expert_step, previous_steps):
 
 
 def collect(args):
+    """Run the level 2 corrections collection pipeline."""
     print("=== LOADING EXPERT TRAJECTORIES ===")
 
     expert_trajectories = load_expert_trajectories(
@@ -317,6 +319,7 @@ def collect(args):
 
 
 def main():
+    """Run the level 2 corrections collection pipeline."""
     parser = argparse.ArgumentParser(
         description="Collect trajectory-aligned Level 2 corrections."
     )

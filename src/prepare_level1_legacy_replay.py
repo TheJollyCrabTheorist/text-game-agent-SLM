@@ -18,6 +18,7 @@ OUTPUT_PATH = OUTPUT_DIR / "train.jsonl"
 
 
 def main():
+    """Run the level 1 legacy replay preparation pipeline."""
     global TRAJECTORIES_DIR, OUTPUT_DIR, OUTPUT_PATH
     parser = argparse.ArgumentParser()
     parser.add_argument("--trajectories", type=Path, default=TRAJECTORIES_DIR)

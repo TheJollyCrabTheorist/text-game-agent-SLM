@@ -49,6 +49,7 @@ OUTPUT_DIR = Path("models/qwen25-05b-textworld-qlora")
 
 
 def set_seed(seed):
+    """Set the random seed."""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -60,6 +61,7 @@ def set_seed(seed):
 class TextWorldDataset(Dataset):
 
     def __init__(self, path, tokenizer, max_length, prompt_version="ordered"):
+        """Initialize the SFT dataset."""
         if prompt_version == "legacy":
             from evaluate_games import LEGACY_SYSTEM_PROMPT as system_prompt, build_legacy_user_prompt as builder
         else:
@@ -240,17 +242,21 @@ class TextWorldDataset(Dataset):
         print(f"Maximum final sequence length: {max_final_length}")
 
     def __len__(self):
+        """Return the number of training examples."""
         return len(self.examples)
 
     def __getitem__(self, index):
+        """Return one training example as model inputs."""
         return self.examples[index]
 
 class DataCollator:
 
     def __init__(self, tokenizer):
+        """Initialize the SFT dataset."""
         self.pad_token_id = tokenizer.pad_token_id
 
     def __call__(self, batch):
+        """Collate training examples into model batches."""
         max_len = max(len(item["input_ids"]) for item in batch)
 
         input_ids = []
@@ -286,6 +292,7 @@ class DataCollator:
 
 @torch.no_grad()
 def evaluate(model, dataloader, device):
+    """Evaluate the model on a dataloader."""
     model.eval()
 
     total_loss = 0.0
@@ -311,6 +318,7 @@ def evaluate(model, dataloader, device):
 
 def train(args):
 
+    """Run the SFT training pipeline."""
     set_seed(SEED)
 
     model_name = getattr(args, "model_name", MODEL_NAME)

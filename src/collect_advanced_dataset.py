@@ -11,6 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def collect_dataset(manifest_path, output_dir, max_steps=150, overwrite=False):
+    """Collect expert walkthrough trajectories from a dataset manifest."""
     manifest_path = PROJECT_ROOT / manifest_path
     output_dir = PROJECT_ROOT / output_dir
 
@@ -126,6 +127,7 @@ def collect_dataset(manifest_path, output_dir, max_steps=150, overwrite=False):
 
 
 def main():
+    """Run the advanced dataset collection pipeline."""
     parser = argparse.ArgumentParser(
         description="Collect Level 2 TextWorld oracle trajectories."
     )

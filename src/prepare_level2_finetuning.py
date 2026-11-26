@@ -25,11 +25,13 @@ OUTPUT_DIR = PROJECT_ROOT / "data/level2/finetuning"
 
 
 def read_jsonl(path):
+    """Read a JSONL file into a list of dicts."""
     with path.open() as f:
         return [json.loads(line) for line in f if line.strip()]
 
 
 def build_validation_examples():
+    """Build validation examples for the level 2 fine-tuning."""
     manifest = json.loads(LEVEL2_MANIFEST.read_text())
 
     validation_ids = {
@@ -121,6 +123,7 @@ def build_validation_examples():
 
 
 def main():
+    """Run the level 2 fine-tuning dataset preparation pipeline."""
     global LEVEL1_REPLAY, LEVEL2_CORRECTIONS, LEVEL2_MANIFEST, LEVEL2_TRAJECTORIES, OUTPUT_DIR
     parser = argparse.ArgumentParser()
     parser.add_argument("--replay", type=Path, default=LEVEL1_REPLAY)

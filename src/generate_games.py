@@ -77,6 +77,7 @@ def generate_game(
 
 
 def main():
+    """Run the game generation pipeline."""
     parser = argparse.ArgumentParser(
         description="Generate a reproducible TextWorld dataset."
     )

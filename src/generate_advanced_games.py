@@ -10,6 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def create_splits(game_ids, seed=42):
+    """Create train and validation splits for generated games."""
     shuffled = game_ids.copy()
     random.Random(seed).shuffle(shuffled)
 
@@ -25,6 +26,7 @@ def create_splits(game_ids, seed=42):
 
 
 def generate_game(game_id, seed, output_path, params, overwrite=False):
+    """Generate one advanced TextWorld game."""
     if output_path.exists() and not overwrite:
         raise FileExistsError(
             f"{output_path} already exists. Use --overwrite to regenerate."
@@ -68,6 +70,7 @@ def generate_game(game_id, seed, output_path, params, overwrite=False):
 
 
 def main():
+    """Run the advanced game generation pipeline."""
     parser = argparse.ArgumentParser(
         description="Generate an advanced TextWorld dataset for Level 2."
     )

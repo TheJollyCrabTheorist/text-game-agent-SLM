@@ -805,6 +805,7 @@ def evaluate_test_set(
 
 def main():
 
+    """Run the game evaluation pipeline."""
     parser = argparse.ArgumentParser(
         description="Evaluate a TextWorld language model."
     )

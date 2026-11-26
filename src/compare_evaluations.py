@@ -10,6 +10,7 @@ EVALUATIONS = {
 
 
 def load_evaluation(path):
+    """Load an evaluation report from disk."""
     with path.open() as f:
         data = json.load(f)
 
@@ -20,10 +21,12 @@ def load_evaluation(path):
 
 
 def won(game):
+    """Return whether a game was won."""
     return game.get("won", game.get("success", False))
 
 
 def main():
+    """Run the evaluation comparison pipeline."""
     evaluations = {
         name: load_evaluation(path)
         for name, path in EVALUATIONS.items()

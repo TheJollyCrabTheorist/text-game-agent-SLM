@@ -105,6 +105,7 @@ Choose the next action."""
 
 
 def main():
+    """Run the SFT dataset preparation pipeline."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--prompt-version", choices=["legacy", "ordered"], default="ordered")
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)

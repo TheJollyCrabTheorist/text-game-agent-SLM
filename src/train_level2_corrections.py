@@ -48,12 +48,14 @@ SEED = 42
 
 
 def set_seed(seed):
+    """Set the random seed."""
     random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
 
 def read_jsonl(path):
+    """Read a JSONL file into a list of dicts."""
     with path.open(encoding="utf-8") as file:
         return [
             json.loads(line)
@@ -64,6 +66,7 @@ def read_jsonl(path):
 
 class TextWorldDataset(Dataset):
     def __init__(self, path, tokenizer):
+        """Initialize the level 2 corrective dataset."""
         self.examples = []
 
         rows = read_jsonl(path)
@@ -137,17 +140,21 @@ class TextWorldDataset(Dataset):
         print(f"Loaded {len(self.examples)} examples from {path}")
 
     def __len__(self):
+        """Return the number of correction examples."""
         return len(self.examples)
 
     def __getitem__(self, index):
+        """Return one correction example as model inputs."""
         return self.examples[index]
 
 
 class DataCollator:
     def __init__(self, tokenizer):
+        """Initialize the level 2 corrective dataset."""
         self.pad_token_id = tokenizer.pad_token_id
 
     def __call__(self, examples):
+        """Collate correction examples into model batches."""
         max_length = max(
             len(example["input_ids"])
             for example in examples
@@ -189,6 +196,7 @@ class DataCollator:
 
 
 def evaluate(model, dataloader, device):
+    """Evaluate the model on a dataloader."""
     model.eval()
 
     total_loss = 0.0
@@ -216,12 +224,14 @@ def evaluate(model, dataloader, device):
 
 
 def save_adapter(model, tokenizer, output_dir):
+    """Save the LoRA adapter."""
     output_dir.mkdir(parents=True, exist_ok=True)
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
 
 
 def train(args):
+    """Run the level 2 corrective fine-tuning."""
     set_seed(SEED)
 
     if not torch.cuda.is_available():
@@ -480,6 +490,7 @@ def train(args):
 
 
 def main():
+    """Run the level 2 corrective fine-tuning pipeline."""
     parser = argparse.ArgumentParser(
         description="Fine-tune the Level 1 adapter on Level 2 corrections."
     )

@@ -38,6 +38,7 @@ class Issue:
     message: str
 
     def format(self) -> str:
+        """Run format."""
         return f"[{self.level.upper()}] {self.path}: {self.message}"
 
 
@@ -49,15 +50,19 @@ class FileReport:
 
     @property
     def ok(self) -> bool:
+        """Run ok."""
         return not any(i.level == "error" for i in self.issues)
 
     def error(self, path: str, message: str) -> None:
+        """Run error."""
         self.issues.append(Issue("error", path, message))
 
     def warn(self, path: str, message: str) -> None:
+        """Run warn."""
         self.issues.append(Issue("warning", path, message))
 
     def to_dict(self) -> dict[str, Any]:
+        """Run to_dict."""
         return {
             "file": str(self.file),
             "kind": self.kind,
@@ -69,20 +74,24 @@ class FileReport:
 
 
 def is_number(value: Any) -> bool:
+    """Return True if the value is a number."""
     return isinstance(value, (int, float)) and not isinstance(value, bool)
 
 
 def is_finite_number(value: Any) -> bool:
+    """Return True if the value is a finite number."""
     return is_number(value) and math.isfinite(float(value))
 
 
 def approx_equal(a: Any, b: Any, *, abs_tol: float = 1e-9, rel_tol: float = 1e-9) -> bool:
+    """Return True if two numbers are approximately equal."""
     if not (is_number(a) and is_number(b)):
         return False
     return math.isclose(float(a), float(b), rel_tol=rel_tol, abs_tol=abs_tol)
 
 
 def detect_kind(data: Any, file: Path) -> str:
+    """Detect the JSON kind of a value."""
     if file.name == "training_history.json":
         return "training_history"
     if isinstance(data, dict):
@@ -97,6 +106,7 @@ def detect_kind(data: Any, file: Path) -> str:
 
 
 def require(report: FileReport, path: str, obj: Any, key: str, types: tuple[type, ...] | None = None) -> Any:
+    """Require a key to exist with a given type."""
     if not isinstance(obj, dict):
         report.error(path, f"expected object to contain '{key}'")
         return None
@@ -111,6 +121,7 @@ def require(report: FileReport, path: str, obj: Any, key: str, types: tuple[type
 
 
 def check_optional_type(report: FileReport, path: str, obj: dict[str, Any], key: str, types: tuple[type, ...]) -> None:
+    """Check that an optional key has a given type."""
     if key not in obj:
         return
     value = obj[key]
@@ -122,6 +133,7 @@ def check_optional_type(report: FileReport, path: str, obj: dict[str, Any], key:
 
 
 def validate_game_step(report: FileReport, path: str, step: Any, strict: bool) -> dict[str, Any]:
+    """Validate one trajectory step."""
     if not isinstance(step, dict):
         report.error(path, f"expected object, got {type(step).__name__}")
         return {}
@@ -167,6 +179,7 @@ def validate_game_step(report: FileReport, path: str, step: Any, strict: bool) -
 
 
 def validate_game_result(report: FileReport, path: str, game: Any, strict: bool, *, max_steps_hint: Any = None) -> None:
+    """Validate one game result."""
     if not isinstance(game, dict):
         report.error(path, f"expected object, got {type(game).__name__}")
         return
@@ -282,6 +295,7 @@ def validate_game_result(report: FileReport, path: str, game: Any, strict: bool,
 
 
 def validate_game_eval(report: FileReport, data: Any, strict: bool) -> None:
+    """Validate one game evaluation."""
     if not isinstance(data, dict):
         report.error("$", f"expected top-level object, got {type(data).__name__}")
         return
@@ -378,6 +392,7 @@ def validate_game_eval(report: FileReport, data: Any, strict: bool) -> None:
 
 
 def _validate_epoch_dict(report: FileReport, path: str, epoch: Any, strict: bool) -> None:
+    """Validate one training epoch."""
     if not isinstance(epoch, dict):
         report.error(path, f"expected object, got {type(epoch).__name__}")
         return
@@ -392,6 +407,7 @@ def _validate_epoch_dict(report: FileReport, path: str, epoch: Any, strict: bool
 
 
 def validate_training_history(report: FileReport, data: Any, strict: bool) -> None:
+    """Validate a training history."""
     if isinstance(data, list):
         if not data:
             report.warn("$", "training history is empty")
@@ -445,11 +461,13 @@ def validate_training_history(report: FileReport, data: Any, strict: bool) -> No
 
 
 def load_json(file: Path) -> Any:
+    """Load a JSON file."""
     with file.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def validate_file(file: Path, *, kind: str = "auto", strict: bool = False) -> FileReport:
+    """Validate one input file."""
     report = FileReport(file=file, kind="pending")
     try:
         data = load_json(file)
@@ -471,6 +489,7 @@ def validate_file(file: Path, *, kind: str = "auto", strict: bool = False) -> Fi
 
 
 def discover_inputs(paths: list[str], globs: list[str], *, include_models: bool) -> list[Path]:
+    """Discover input files."""
     files: list[Path] = []
     root = PROJECT_ROOT
 
@@ -515,6 +534,7 @@ def discover_inputs(paths: list[str], globs: list[str], *, include_models: bool)
 
 
 def print_report(reports: Iterable[FileReport], *, verbose: bool) -> int:
+    """Print the validation report."""
     reports = list(reports)
     errors = sum(1 for r in reports for i in r.issues if i.level == "error")
     warnings = sum(1 for r in reports for i in r.issues if i.level == "warning")
@@ -539,6 +559,7 @@ def print_report(reports: Iterable[FileReport], *, verbose: bool) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Run the validation report pipeline."""
     parser = argparse.ArgumentParser(description="Validate saved model/evaluation result JSON files.")
     parser.add_argument(
         "paths",

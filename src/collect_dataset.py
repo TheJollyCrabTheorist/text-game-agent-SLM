@@ -16,6 +16,7 @@ def collect_dataset(
     max_steps=100,
     overwrite=False
 ):
+    """Collect expert walkthrough trajectories from a dataset manifest."""
     manifest_path = PROJECT_ROOT / manifest_path
     output_dir = PROJECT_ROOT / output_dir
 
@@ -182,6 +183,7 @@ def collect_dataset(
 
 
 def main():
+    """Run the dataset collection pipeline."""
     parser = argparse.ArgumentParser(
         description="Collect oracle trajectories for TextWorld games."
     )

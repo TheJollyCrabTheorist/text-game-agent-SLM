@@ -52,6 +52,7 @@ def serialize_info(infos):
 
 def play_game(game_path, output_path, max_steps=50):
 
+    """Play and record one TextWorld game."""
     game_path = Path(game_path)
 
     if not game_path.exists():
